@@ -12,7 +12,7 @@ const Slider = () => {
     </>
   );
   return (
-    <div className="carousel w-3/4 mx-auto my-6 rounded-xl">
+    <div className="carousel lg:w-4/5 lg:mx-auto m-3 lg:m-8 rounded-xl">
       <div id="slide1" className="carousel-item relative w-full">
         <div className="gradient">
           <img

@@ -1,4 +1,3 @@
-import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import Slider from "../Slider/Slider";
@@ -8,7 +7,8 @@ const Home = () => {
   return (
     <div>
       <Slider></Slider>
-      <div className="grid grid-cols-1">
+      <h2 className="text-2xl lg:text-3xl font-bold border border-gray-500 rounded-2xl text-center py-2 mx-3 lg:mx-20 mt-16">Available Photography Services</h2>
+      <div className="lg:w-3/5 mx-auto grid lg:grid-cols-1">
         {services.map((service) => (
           <ServiceCard key={service.id} service={service}></ServiceCard>
         ))}

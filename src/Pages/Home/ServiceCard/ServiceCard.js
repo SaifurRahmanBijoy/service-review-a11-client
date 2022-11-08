@@ -1,23 +1,19 @@
 import React from "react";
 
-const ServiceCard = (service) => {
+const ServiceCard = ({ service }) => {
   const { title, img, price, about } = service;
+  console.log(service);
   return (
-    <div className="mx-auto my-8 w-4/5 text-black">
-      <div className="card lg:card-side bg-base-100 shadow-xl">
-        <figure className="">
-          <img
-            src={img}
-            alt=""
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">{title}</h2>
-          <p>{about}</p>
-          <p className="text-orange-600">{price}</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Details</button>
-          </div>
+    <div className="card border border-slate-800 bg-gray-100 shadow-xl m-4">
+      <figure className="shadow-xl">
+        <img className="w-full" src={img} alt="Album" />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title text-2xl">{title}</h2>
+        <p className="text-justified">{about.slice(0,100)}...</p>
+        <p className="text-orange-600">Price: ${price}</p>
+        <div className="card-actions">
+          <button className="btn btn-purple- w-full">details</button>
         </div>
       </div>
     </div>
