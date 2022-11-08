@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer items-center p-4 bg-neutral text-slate-200">
       <div className="items-center grid-flow-col">
-        <img className="w-12" src="https://www.freeiconspng.com/uploads/review-icon-png-1.png" alt="" />
+        {/* <img className="w-12" src="https://www.freeiconspng.com/uploads/review-icon-png-1.png" alt="" /> */}
         <p>Copyright ©Reviews N Critiques 2022 - All right reserved</p>
       </div>
       <div className="grid-flow-col text-center gap-4 md:place-self-center md:justify-self-end">
