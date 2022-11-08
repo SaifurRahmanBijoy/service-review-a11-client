@@ -2,11 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const menuItems = (
+    <>
+      <li>
+        <Link>Homepage</Link>
+      </li>
+      <li>
+        <Link>Portfolio</Link>
+      </li>
+      <li>
+        <Link>About</Link>
+      </li>
+    </>
+  );
   return (
     <div className="navbar bg-secondary text-white">
       <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost btn-circle btn-xs sm:btn-sm ">
+        <div className="dropdown lg:hidden">
+          <label
+            tabIndex={0}
+            className="btn btn-ghost btn-circle btn-xs sm:btn-sm "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -26,18 +42,14 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-primary rounded-box w-52"
           >
-            <li>
-              <Link>Homepage</Link>
-            </li>
-            <li>
-              <Link>Portfolio</Link>
-            </li>
-            <li>
-              <Link>About</Link>
-            </li>
-            <li>
-              <Link>Profile</Link>
-            </li>
+            {menuItems}
+          </ul>
+        </div>
+        {/* --- */}
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal p-0">
+            {/* ---- */}
+            {menuItems}
           </ul>
         </div>
       </div>
