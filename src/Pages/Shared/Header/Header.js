@@ -54,8 +54,8 @@ const Header = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <Link className="btn btn-ghost upper-case lg:text-xl">
-          Reviews N Critiques
+        <Link className="btn btn-ghost upper-case lg:text-2xl">
+        Photo Ink
         </Link>
       </div>
       <div className="navbar-end">
