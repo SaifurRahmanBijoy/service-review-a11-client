@@ -1,7 +1,8 @@
 import { Link, useLoaderData } from "react-router-dom";
 import AboutCard from "../ExtraSections/AboutCard/AboutCard";
 import PhotoGrid from "../ExtraSections/PhotoGrid/PhotoGrid";
-import ServiceCard from "../ServiceCard/ServiceCard";
+
+import ServiceCardHome from "../ServiceCard/ServiceCardHome";
 import Slider from "../Slider/Slider";
 
 const Home = () => {
@@ -16,7 +17,7 @@ const Home = () => {
         </h2>
         <div className="lg:w-4/5 mx-auto mb-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <ServiceCard key={service._id} service={service}></ServiceCard>
+            <ServiceCardHome key={service._id} service={service}></ServiceCardHome>
           ))}
         </div>
         <div className="w-2/3 lg:w-2/5 mx-auto">
