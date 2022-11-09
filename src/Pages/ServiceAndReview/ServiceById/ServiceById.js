@@ -1,7 +1,9 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const ServiceById = () => {
+  const { user } = useContext(AuthContext);
   const { _id, img, title, price, about } = useLoaderData();
   return (
     <div>
@@ -46,41 +48,47 @@ const ServiceById = () => {
         </div>
         {/* ----< */}
 
-        <div className="w-4/5 lg:w-3/5 mx-auto mb-20">
-          <form >
-            <h2 className="text-2xl text-slate-500 font-bold text-center my-5 uppercase">
-              Please drop a review about this service of mine
-            </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 m-3">
-              <input
-                name="name"
-                type="text"
-                placeholder="Name"
-                className="input input-bordered w-full"
+        {user ? (
+          <div className="w-4/5 lg:w-3/5 mx-auto mb-20">
+            <form>
+              <h2 className="text-2xl text-slate-500 font-bold text-center my-5 uppercase">
+                Please drop a review about this service of mine
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 m-3">
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="Name"
+                  className="input input-bordered w-full"
+                  required
+                />
+                <input
+                  name="email"
+                  type="text"
+                  placeholder="Your Email"
+                  // defaultValue={user?.email}
+                  className="input input-bordered w-full"
+                  readOnly
+                />
+              </div>
+              <textarea
+                name="message"
+                className="textarea textarea-bordered w-full "
+                placeholder="Your Message"
                 required
-              />
+              ></textarea>
               <input
-                name="email"
-                type="text"
-                placeholder="Your Email"
-                // defaultValue={user?.email}
-                className="input input-bordered w-full"
-                readOnly
+                className="btn btn-primary w-full"
+                type="submit"
+                value="Submit"
               />
-            </div>
-            <textarea
-              name="message"
-              className="textarea textarea-bordered w-full "
-              placeholder="Your Message"
-              required
-            ></textarea>
-            <input
-              className="btn btn-primary w-full"
-              type="submit"
-              value="Submit"
-            />
-          </form>
-        </div>
+            </form>
+          </div>
+        ) : (
+          <h2 className="text-2xl text-center my-10">
+            Please <Link className="btn-ghost text-blue-500" to="/login">login</Link> to provide a review.
+          </h2>
+        )}
       </div>
     </div>
   );

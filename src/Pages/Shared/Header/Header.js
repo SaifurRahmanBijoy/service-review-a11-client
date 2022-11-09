@@ -68,9 +68,7 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <button className="btn btn-outline text-white font-normal">
-          {
-            user ? <Link>Logout</Link> : <Link to="/login">Login</Link>
-          }
+          {user ? <Link>Logout</Link> : <Link to="/login">Login</Link>}
         </button>
       </div>
     </div>
