@@ -1,4 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
+import AboutCard from "../ExtraSections/AboutCard/AboutCard";
 import PhotoGrid from "../ExtraSections/PhotoGrid/PhotoGrid";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import Slider from "../Slider/Slider";
@@ -26,6 +27,7 @@ const Home = () => {
       </div>
       {/* Extra sections */}
       <PhotoGrid></PhotoGrid>
+      <AboutCard></AboutCard>
     </div>
   );
 };
