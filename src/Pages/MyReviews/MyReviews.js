@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const MyReviews = () => {
@@ -13,6 +14,24 @@ const MyReviews = () => {
         console.log(filteredReview);
       });
   }, [user]);
+  //
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure about this?");
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("review deleted.");
+            const remaining = reviews.filter((odr) => odr._id !== id);
+            setReviews(remaining);
+          }
+        });
+    }
+  };
   return (
     <div>
       {reviews ? (
@@ -27,6 +46,17 @@ const MyReviews = () => {
             </p>
             <p className="text-orange-400 text-xl">I thank you,{r.user}</p>
             <p className="text-blue-400 text-sm">Your Email: {r.email}</p>
+            <div className="py-3">
+              <Link className="btn mr-4 py-0 ">
+                Update
+              </Link>
+              <button
+                className="btn btn-error"
+                onClick={() => handleDelete(r._id)}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         ))
       ) : (
