@@ -6,8 +6,8 @@ const Review = ({ _id }) => {
     fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => {
-        // const filteredReview = data.filter((d) => d._id === _id);
-        setReviews(data);
+        const filteredReview = data.filter((d) => d.service === _id);
+        setReviews(filteredReview);
         console.log(data);
       });
   }, [_id]);
