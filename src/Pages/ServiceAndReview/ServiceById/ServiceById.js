@@ -26,13 +26,16 @@ const ServiceById = () => {
       email,
       review: review,
     };
-    fetch("http://localhost:5000/reviews", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(revDetails),
-    })
+    fetch(
+      "https://a11-service-review-server-saifurrahmanbijoy.vercel.app/reviews",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(revDetails),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

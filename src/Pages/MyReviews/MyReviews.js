@@ -6,7 +6,9 @@ const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(
+      "https://a11-service-review-server-saifurrahmanbijoy.vercel.app/reviews"
+    )
       .then((res) => res.json())
       .then((data) => {
         const filteredReview = data.filter((d) => d.email === user?.email);
@@ -18,9 +20,12 @@ const MyReviews = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure about this?");
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://a11-service-review-server-saifurrahmanbijoy.vercel.app/reviews/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -47,9 +52,7 @@ const MyReviews = () => {
             <p className="text-orange-400 text-xl">I thank you,{r.user}</p>
             <p className="text-blue-400 text-sm">Your Email: {r.email}</p>
             <div className="py-3">
-              <Link className="btn mr-4 py-0 ">
-                Update
-              </Link>
+              <Link className="btn mr-4 py-0 ">Update</Link>
               <button
                 className="btn btn-error"
                 onClick={() => handleDelete(r._id)}

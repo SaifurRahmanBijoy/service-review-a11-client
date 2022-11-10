@@ -17,18 +17,26 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/home"),
+        loader: () =>
+          fetch(
+            "https://a11-service-review-server-saifurrahmanbijoy.vercel.app/home"
+          ),
       },
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () =>
+          fetch(
+            "https://a11-service-review-server-saifurrahmanbijoy.vercel.app/services"
+          ),
       },
       {
         path: "/services/:id",
         element: <ServiceById></ServiceById>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://a11-service-review-server-saifurrahmanbijoy.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/login",

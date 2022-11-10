@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 const Review = ({ _id }) => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(
+      "https://a11-service-review-server-saifurrahmanbijoy.vercel.app/reviews"
+    )
       .then((res) => res.json())
       .then((data) => {
         const filteredReview = data.filter((d) => d.service === _id);
@@ -15,7 +17,10 @@ const Review = ({ _id }) => {
   return (
     <div>
       {reviews.map((review) => (
-        <div key={review._id} className="card flex items-center justify-center card-side bg-gray-100 my-2 shadow-xl">
+        <div
+          key={review._id}
+          className="card flex items-center justify-center card-side bg-gray-100 my-2 shadow-xl"
+        >
           {review?.userImg ? (
             <img
               className="w-16 h-16 mx-5 rounded-full"
