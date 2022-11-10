@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import AboutCard from "../ExtraSections/AboutCard/AboutCard";
 import PhotoGrid from "../ExtraSections/PhotoGrid/PhotoGrid";
 
@@ -7,6 +9,10 @@ import Slider from "../Slider/Slider";
 
 const Home = () => {
   const services = useLoaderData();
+  const { loading } = useContext(AuthContext);
+  if (loading) {
+    return <h2 className="animate-spin text-6xl text-center my-10">߷</h2>;
+  }
   return (
     <div>
       <Slider></Slider>
@@ -17,7 +23,10 @@ const Home = () => {
         </h2>
         <div className="lg:w-4/5 mx-auto mb-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <ServiceCardHome key={service._id} service={service}></ServiceCardHome>
+            <ServiceCardHome
+              key={service._id}
+              service={service}
+            ></ServiceCardHome>
           ))}
         </div>
         <div className="w-2/3 lg:w-2/5 mx-auto">

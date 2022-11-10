@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const MyReviews = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     fetch(
@@ -37,6 +37,9 @@ const MyReviews = () => {
         });
     }
   };
+  if (loading) {
+    return <h2 className="animate-spin text-6xl text-center my-10">߷</h2>;
+  }
   return (
     <div>
       {reviews ? (
