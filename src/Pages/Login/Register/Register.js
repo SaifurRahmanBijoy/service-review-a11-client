@@ -13,6 +13,7 @@ const Register = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
+        form.reset();
       })
       .catch((err) => console.error(err));
   };
