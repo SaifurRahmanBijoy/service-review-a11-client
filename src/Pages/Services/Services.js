@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import ServiceCard from "../Home/ServiceCard/ServiceCard";
 
 const Services = () => {
+  useTitle("Services");
   const services = useLoaderData();
   const { loading } = useContext(AuthContext);
   if (loading) {

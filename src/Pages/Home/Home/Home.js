@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 import AboutCard from "../ExtraSections/AboutCard/AboutCard";
 import PhotoGrid from "../ExtraSections/PhotoGrid/PhotoGrid";
 
@@ -8,6 +9,7 @@ import ServiceCardHome from "../ServiceCard/ServiceCardHome";
 import Slider from "../Slider/Slider";
 
 const Home = () => {
+  useTitle("Home");
   const services = useLoaderData();
   const { loading } = useContext(AuthContext);
   if (loading) {
