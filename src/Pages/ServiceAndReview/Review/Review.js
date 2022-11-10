@@ -8,7 +8,7 @@ const Review = ({ _id }) => {
       .then((data) => {
         const filteredReview = data.filter((d) => d.service === _id);
         setReviews(filteredReview);
-        console.log(data);
+        // console.log(data);
       });
   }, [_id]);
 
